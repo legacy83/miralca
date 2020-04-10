@@ -22,7 +22,6 @@ class Elements implements BootstrapInterface, ServiceProviderInterface
     {
 
         add_action( 'acf/init', new ElementsBlock() );
-//        add_action( 'acf/init', new ChosenElementsLocal() );
 
         add_action( 'init', function () {
 

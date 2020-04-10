@@ -11,6 +11,7 @@ namespace Miralca;
 #
 
 plugin()->register( new Editor\Elements() );
+plugin()->register( new Editor\FieldGroups() );
 plugin()->register( new Type\Register() );
 
 # ------------------------------------------------------------------------------

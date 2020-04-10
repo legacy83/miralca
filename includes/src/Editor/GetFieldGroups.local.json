@@ -1,0 +1,68 @@
+[
+  {
+    "key": "group_5e90c2e41fd44",
+    "title": "Elements",
+    "fields": [
+      {
+        "key": "field_5e90c7267148c",
+        "label": "My Chosen Elements",
+        "name": "chosen_elements",
+        "type": "repeater",
+        "instructions": "Reorder, reuse and combine elements to build unique content.",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "collapsed": "",
+        "min": 0,
+        "max": 0,
+        "layout": "table",
+        "button_label": "Add Element",
+        "sub_fields": [
+          {
+            "key": "field_5e90c77a7148d",
+            "label": "Element",
+            "name": "element",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "post_type": [
+              "miralca_element"
+            ],
+            "taxonomy": "",
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
+          }
+        ]
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "block",
+          "operator": "==",
+          "value": "acf\/miralca-elements"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": ""
+  }
+]
