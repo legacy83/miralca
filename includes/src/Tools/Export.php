@@ -29,7 +29,7 @@ class Export implements BootstrapInterface, ServiceProviderInterface
                 __( 'Use the content above to import current post types into a different WordPress site.', 'miralca' ),
             ] );
 
-            echo '<div style="padding: 20px; border: 1px solid #000; margin-bottom: 1em; white-space: wrap">';
+            echo '<div style="padding: 20px; border: 1px solid #000; margin-bottom: 1em; white-space: nowrap">';
 
             $layoutTemplates = new LayoutTemplates();
             $layoutTemplates->execute( function ( \WP_Post $template ) {
