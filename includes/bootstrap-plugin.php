@@ -2,8 +2,6 @@
 
 namespace Miralca;
 
-use Miralca\Type\Register;
-
 # ------------------------------------------------------------------------------
 # Lorem ipsum dolor sit amet
 # ------------------------------------------------------------------------------
@@ -12,7 +10,8 @@ use Miralca\Type\Register;
 # cursus. Vestibulum dictum nisi ligula, in dictum justo pulvinar quis.
 #
 
-plugin()->register( new Register() );
+plugin()->register( new Editor\Elements() );
+plugin()->register( new Type\Register() );
 
 # ------------------------------------------------------------------------------
 # Lorem ipsum dolor sit amet
