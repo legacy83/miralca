@@ -25,80 +25,9 @@ define( 'MIRALCA_PLUGIN_VERSION', get_file_data( __FILE__, [ 'Version' ] )[ 0 ] 
 # cursus. Vestibulum dictum nisi ligula, in dictum justo pulvinar quis.
 #
 
-add_action( 'miralca/bootstrap', function ( \Dalen\Plugin $plugin ) {
+add_action( 'dalen/bootstrap/plugins', function () {
 
-    $plugin->register( new \Miralca\Type\Register() );
-
-} );
-
-# ------------------------------------------------------------------------------
-# Lorem ipsum dolor sit amet
-# ------------------------------------------------------------------------------
-#
-# Suspendisse sodales ipsum non justo imperdiet, ut lacinia erat
-# cursus. Vestibulum dictum nisi ligula, in dictum justo pulvinar quis.
-#
-
-add_action( 'miralca/autoload/loader', function ( \Composer\Autoload\ClassLoader $loader ) {
-
-    $loader->setPsr4( 'Miralca\\', dirname( MIRALCA_PLUGIN_FILE ) . '/includes/src' );
+    require_once( __DIR__ . '/includes/bootstrap-autoload.php' );
+    require_once( __DIR__ . '/includes/bootstrap-plugin.php' );
 
 } );
-
-# ------------------------------------------------------------------------------
-# Lorem ipsum dolor sit amet
-# ------------------------------------------------------------------------------
-#
-# Suspendisse sodales ipsum non justo imperdiet, ut lacinia erat
-# cursus. Vestibulum dictum nisi ligula, in dictum justo pulvinar quis.
-#
-
-add_action( 'miralca/autoload', function () {
-
-    \Composer\Autoload\includeFile( __DIR__ . '/includes/functions-helpers.php' );
-
-} );
-
-# ------------------------------------------------------------------------------
-# Lorem ipsum dolor sit amet
-# ------------------------------------------------------------------------------
-#
-# Suspendisse sodales ipsum non justo imperdiet, ut lacinia erat
-# cursus. Vestibulum dictum nisi ligula, in dictum justo pulvinar quis.
-#
-
-add_action( 'miralca/autoload', function () {
-
-    $loader = new \Composer\Autoload\ClassLoader();
-    do_action( 'miralca/autoload/loader', $loader );
-    $loader->register();
-
-} );
-
-# ------------------------------------------------------------------------------
-# Lorem ipsum dolor sit amet
-# ------------------------------------------------------------------------------
-#
-# Suspendisse sodales ipsum non justo imperdiet, ut lacinia erat
-# cursus. Vestibulum dictum nisi ligula, in dictum justo pulvinar quis.
-#
-
-$run = function () {
-
-    if ( defined( 'MIRALCA_BOOTSTRAPPED' ) ) {
-        return;
-    }
-
-    if ( defined( 'DALEN_PLUGIN' ) && DALEN_PLUGIN ) {
-
-        do_action( 'miralca/autoload' );
-        do_action( 'miralca/bootstrap', \Miralca\plugin() );
-        \Miralca\plugin()->run();
-
-        define( 'MIRALCA_BOOTSTRAPPED', true );
-    }
-
-};
-
-add_action( 'miralca/run', $run );
-add_action( 'dalen/bootstrap/plugins', $run );
