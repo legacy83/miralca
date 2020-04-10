@@ -13,7 +13,7 @@ class ToolsRender
     {
         print '<div class="wrap">';
 
-        print vsprintf( ' <h1>%1$s</h1><p>%2$s</p>', [
+        print vsprintf( '<h1>%1$s</h1><p>%2$s</p>', [
             __( 'Tools', 'miralca' ),
             __( 'Suspendisse sodales ipsum non justo imperdiet, ut lacinia erat cursus. Vestibulum dictum nisi ligula, in dictum justo pulvinar quis.', 'miralca' ),
         ] );
