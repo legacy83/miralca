@@ -1,32 +1,23 @@
 <?php /** @var \Miralca\Tools\PluckPatterns $layoutPatterns */ ?>
 <?php /** @var \Miralca\Tools\PluckPatterns $sectionPatterns */ ?>
 
-<?= sprintf( '<h2>%s</h2>', __( 'Export Layout Patterns', 'miralca' ) ); ?>
-<?= sprintf( '<p>%s</p>', __( 'Use the content above to import current post types into a different WordPress site.', 'miralca' ) ); ?>
+<?= \Miralca\view( 'tools/export-patterns' )->render( [
+    'title' => __( 'Export Layout Patterns', 'miralca' ),
+    'description' => __( 'Copy the exported layout patterns bellow and ask your developer to manually import them into your personal WordPress site.', 'miralca' ),
+    'pluckPatterns' => $layoutPatterns,
+] ); ?>
 
-<?php if ( !empty( $layoutPatterns->getPatterns() ) ): ?>
-
-    <?= vsprintf( '<textarea class="miralca-export" readonly>%s</textarea>', [
-        esc_html( json_encode( $layoutPatterns->getPatterns() ) ),
-    ] ); ?>
-
-<?php endif; ?>
-
-<?= sprintf( '<h2>%s</h2>', __( 'Export Section Patterns', 'miralca' ) ); ?>
-<?= sprintf( '<p>%s</p>', __( 'Use the content above to import current post types into a different WordPress site.', 'miralca' ) ); ?>
-
-<?php if ( !empty( $sectionPatterns->getPatterns() ) ): ?>
-
-    <?= vsprintf( '<textarea class="miralca-export" readonly>%s</textarea>', [
-        esc_html( json_encode( $sectionPatterns->getPatterns() ) ),
-    ] ); ?>
-
-<?php endif; ?>
+<?= \Miralca\view( 'tools/export-patterns' )->render( [
+    'title' => __( 'Export Section Patterns', 'miralca' ),
+    'description' => __( 'Copy the exported section patterns bellow and ask your developer to manually import them into your personal WordPress site.', 'miralca' ),
+    'pluckPatterns' => $sectionPatterns,
+] ); ?>
 
 <style>
     .miralca-export {
         border: 1px solid #ccc;
         height: 200px;
+        margin-bottom: 1em;
         padding: 20px;
         width: 100%;
     }

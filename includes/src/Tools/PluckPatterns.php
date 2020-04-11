@@ -38,8 +38,10 @@ class PluckPatterns
 
         }
 
+        $patternName = vsprintf( '%1$s_%2$s', [ $template->post_type, $template->post_name ] );
+
         array_push( $this->patterns, [
-            'pattern_name' => sprintf( 'miralca/layout/%1$s', sanitize_key( $template->post_name ) ),
+            'pattern_name' => sanitize_key( $patternName ),
             'pattern_properties' => [
                 'title' => wp_strip_all_tags( $template->post_title ),
                 'content' => $elementContent,

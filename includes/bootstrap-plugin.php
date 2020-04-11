@@ -13,7 +13,7 @@ namespace Miralca;
 plugin()->register( new Admin\Tools() );
 plugin()->register( new Editor\Elements() );
 plugin()->register( new Editor\FieldGroups() );
-plugin()->register( new Tools\Export() );
+plugin()->register( new Tools\ExportPatterns() );
 plugin()->register( new Type\Register() );
 
 # ------------------------------------------------------------------------------
