@@ -1,23 +1,23 @@
 <?php
 
-namespace Miralca\Type;
+namespace Miralca\Local;
 
 /**
- * Class GetPostTypes
+ * Class PostTypes
  *
- * @package Miralca\Type
+ * @package Miralca\Local
  */
-class GetPostTypes implements \IteratorAggregate
+class PostTypes implements \IteratorAggregate
 {
     private $localFile;
 
     /**
-     * GetPostTypes constructor.
+     * PostTypes constructor.
      */
     public function __construct()
     {
-        $this->localFile = vsprintf( '%sGetPostTypes.local.json', [
-            plugin_dir_path( __FILE__ ),
+        $this->localFile = vsprintf( '%s/PostTypes.local.json', [
+            untrailingslashit( plugin_dir_path( __FILE__ ) ),
         ] );
     }
 

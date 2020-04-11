@@ -22,10 +22,10 @@ class Register implements BootstrapInterface, ServiceProviderInterface
      */
     public function __bootstrap(): void
     {
-        add_action( 'init', [ $this, 'registerTaxonomy' ] );
+        add_action( 'init', [ $this, 'registerTaxonomies' ] );
     }
 
-    public function registerTaxonomy()
+    public function registerTaxonomies()
     {
         $taxonomies = Collection::wrap( new Taxonomies() );
         $taxonomies->each( function ( array $taxonomy, string $name ) {

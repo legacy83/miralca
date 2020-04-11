@@ -12,7 +12,7 @@ class Taxonomies implements \IteratorAggregate
     private $localFile;
 
     /**
-     * GetPostTypes constructor.
+     * Taxonomies constructor.
      */
     public function __construct()
     {
