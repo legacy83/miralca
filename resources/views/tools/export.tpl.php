@@ -12,13 +12,3 @@
     'description' => __( 'Copy the exported section patterns bellow and ask your developer to manually import them into your personal WordPress site.', 'miralca' ),
     'pluckPatterns' => $sectionPatterns,
 ] ); ?>
-
-<style>
-    .miralca-export {
-        border: 1px solid #ccc;
-        height: 200px;
-        margin-bottom: 1em;
-        padding: 20px;
-        width: 100%;
-    }
-</style>
