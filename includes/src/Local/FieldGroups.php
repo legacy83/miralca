@@ -1,23 +1,23 @@
 <?php
 
-namespace Miralca\Editor;
+namespace Miralca\Local;
 
 /**
- * Class GetFieldGroups
+ * Class FieldGroups
  *
- * @package Miralca\Editor
+ * @package Miralca\Local
  */
-class GetFieldGroups implements \IteratorAggregate
+class FieldGroups implements \IteratorAggregate
 {
     private $localFile;
 
     /**
-     * GetPostTypes constructor.
+     * FieldGroups constructor.
      */
     public function __construct()
     {
-        $this->localFile = vsprintf( '%sGetFieldGroups.local.json', [
-            trailingslashit( plugin_dir_path( __FILE__ ) ),
+        $this->localFile = vsprintf( '%s/FieldGroups.local.json', [
+            untrailingslashit( plugin_dir_path( __FILE__ ) ),
         ] );
     }
 
