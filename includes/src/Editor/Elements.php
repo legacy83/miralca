@@ -27,9 +27,9 @@ class Elements implements BootstrapInterface, ServiceProviderInterface
 
             foreach ( [ 'miralca_layout', 'miralca_section' ] as $type ) {
 
-                $post_type_object = get_post_type_object( $type );
-                $post_type_object->template_lock = 'all';
-                $post_type_object->template = [
+                $postTypeObject = get_post_type_object( $type );
+                $postTypeObject->template_lock = 'all';
+                $postTypeObject->template = [
                     [ 'acf/miralca-elements' ],
                 ];
 
