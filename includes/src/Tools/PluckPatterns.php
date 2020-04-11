@@ -30,7 +30,7 @@ class PluckPatterns
                 foreach ( range( 0, $blockDataSize - 1 ) as $index ) {
 
                     $elementId = intval( $blockData[ "chosen_elements_{$index}_element" ] );
-                    $elementContent = trim( get_post( $elementId )->post_content );
+                    $elementContent = $elementContent . trim( get_post( $elementId )->post_content );
 
                 }
 
