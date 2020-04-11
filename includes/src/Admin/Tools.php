@@ -34,8 +34,11 @@ class Tools implements BootstrapInterface, ServiceProviderInterface
         } );
 
         add_action( 'admin_enqueue_scripts', function () {
+
             $style = plugins_url( 'resources/assets/css/admin/tools.css', MIRALCA_PLUGIN_FILE );
             wp_enqueue_style( 'miralca-admin-tools', $style );
+            
         } );
+
     }
 }

@@ -21,6 +21,7 @@ class ElementsBlock
                 'category' => 'layout',
                 'post_types' => [ 'miralca_layout', 'miralca_section' ],
                 'icon' => 'layout',
+                'enqueue_style' => plugins_url( 'resources/assets/css/elements.css', MIRALCA_PLUGIN_FILE ),
                 'supports' => [
                     'align' => false,
                 ],

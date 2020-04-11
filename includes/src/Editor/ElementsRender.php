@@ -14,7 +14,7 @@ class ElementsRender
 
         if ( !have_rows( 'chosen_elements' ) ) {
 
-            print vsprintf( "<div style='color: #999; border: 1px solid #999; padding: 15px'>%s</div>", [
+            print vsprintf( '<div class="chosen-elements-is-empty">%s</div>', [
                 __( 'Reorder, reuse and combine elements to build unique content.', 'miralca' ),
             ] );
 
