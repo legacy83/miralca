@@ -1,13 +1,13 @@
 <?php
 
-namespace Miralca\Type;
+namespace Miralca\Taxonomy;
 
 /**
- * Class GetPostTypes
+ * Class GetTaxonomies
  *
- * @package Miralca\Type
+ * @package Miralca\Taxonomy
  */
-class GetPostTypes implements \IteratorAggregate
+class GetTaxonomies implements \IteratorAggregate
 {
     private $localFile;
 
@@ -16,7 +16,7 @@ class GetPostTypes implements \IteratorAggregate
      */
     public function __construct()
     {
-        $this->localFile = vsprintf( '%sGetPostTypes.local.json', [
+        $this->localFile = vsprintf( '%sGetTaxonomies.local.json', [
             plugin_dir_path( __FILE__ ),
         ] );
     }
