@@ -10,7 +10,7 @@ namespace Miralca;
 # cursus. Vestibulum dictum nisi ligula, in dictum justo pulvinar quis.
 #
 
-plugin()->register( new Admin\Category() );
+plugin()->register( new Admin\Categories() );
 plugin()->register( new Admin\Tools() );
 plugin()->register( new Editor\Elements() );
 plugin()->register( new Editor\FieldGroups() );
