@@ -5,10 +5,10 @@
 <?= sprintf( '<h2>%s</h2>', strval( $title ) ); ?>
 <?= sprintf( '<p>%s</p>', strval( $description ) ); ?>
 
-<?php if ( !empty( $pluckPatterns->getPatterns() ) ): ?>
+<?php if ( iterator_count( $pluckPatterns ) > 0 ): ?>
 
     <?= vsprintf( '<textarea class="miralca-export" readonly>%s</textarea>', [
-        esc_html( json_encode( $pluckPatterns->getPatterns() ) ),
+        esc_html( json_encode( iterator_to_array( $pluckPatterns ) ) ),
     ] ); ?>
 
 <?php endif; ?>
