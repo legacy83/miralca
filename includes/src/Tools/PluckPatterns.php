@@ -13,14 +13,30 @@ class PluckPatterns
 
     public function __invoke( \WP_Post $template )
     {
+        if ( !empty( trim( $template->post_content ) ) ) {
 
-        $elementContent = '';
-
-        if ( empty( trim( $template->post_content ) ) ) {
-            return;
+            array_push( $this->patterns, [
+                'pattern_name' => $this->patternName( $template ),
+                'pattern_properties' => [
+                    'title' => wp_strip_all_tags( $template->post_title ),
+                    'content' => $this->patternContent( $template ),
+                ],
+            ] );
+            
         }
+    }
 
-        foreach ( parse_blocks( $template->post_content ) as $block ) {
+    private function patternName( \WP_Post $template )
+    {
+        return sanitize_key( vsprintf( '%1$s_%2$s', [
+            $template->post_type,
+            $template->post_name
+        ] ) );
+    }
+
+    private function patternContent( \WP_Post $template )
+    {
+        return array_reduce( parse_blocks( $template->post_content ), function ( string $content, array $block ) {
 
             if ( 'acf/miralca-elements' === $block[ 'blockName' ] ) {
 
@@ -29,25 +45,16 @@ class PluckPatterns
 
                 foreach ( range( 0, $blockDataSize - 1 ) as $index ) {
 
-                    $elementId = intval( $blockData[ "chosen_elements_{$index}_element" ] );
-                    $elementContent = $elementContent . trim( get_post( $elementId )->post_content );
+                    $id = intval( $blockData[ "chosen_elements_{$index}_element" ] );
+                    $content = $content . trim( get_post( $id )->post_content );
 
                 }
 
             }
 
-        }
+            return $content;
 
-        $patternName = vsprintf( '%1$s_%2$s', [ $template->post_type, $template->post_name ] );
-
-        array_push( $this->patterns, [
-            'pattern_name' => sanitize_key( $patternName ),
-            'pattern_properties' => [
-                'title' => wp_strip_all_tags( $template->post_title ),
-                'content' => $elementContent,
-            ],
-        ] );
-
+        }, '' );
     }
 
     public function getPatterns(): array
