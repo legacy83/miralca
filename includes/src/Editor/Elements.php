@@ -22,7 +22,6 @@ class Elements implements BootstrapInterface, ServiceProviderInterface
     public function __bootstrap(): void
     {
         add_action( 'acf/init', [ $this, 'registerBlockType' ] );
-        add_action( 'init', [ $this, 'templateLock' ], 12 );
     }
 
     public function registerBlockType()
@@ -54,18 +53,5 @@ class Elements implements BootstrapInterface, ServiceProviderInterface
             'isPreview' => $isPreview,
             'postId' => $postId,
         ] );
-    }
-
-    public function templateLock()
-    {
-        foreach ( [ 'miralca_layout', 'miralca_section' ] as $type ) {
-
-            $postTypeObject = get_post_type_object( $type );
-            $postTypeObject->template_lock = 'all';
-            $postTypeObject->template = [
-                [ 'acf/miralca-elements' ],
-            ];
-
-        }
     }
 }
