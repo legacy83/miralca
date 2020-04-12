@@ -16,7 +16,7 @@ plugin()->register( new Editor\Elements() );
 plugin()->register( new Editor\ElementsLock() );
 plugin()->register( new Editor\FieldGroups() );
 plugin()->register( new Taxonomy\Register() );
-plugin()->register( new Tools\ExportPatterns() );
+plugin()->register( new Tools\Export() );
 plugin()->register( new Type\Register() );
 
 # ------------------------------------------------------------------------------
